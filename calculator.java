@@ -10,12 +10,11 @@ class calculator {
         tf.setBounds(60, 50, 200, 30);  
         
         Label label = new Label("Input will appear here");  
-        label.setBounds(50, 100, 300, 30); 
+        label.setBounds(50, 80, 300, 20); 
         
-      
         // Addition Button
         Button addButton = new Button("+");  
-        addButton.setBounds(60, 100, 50, 30);  
+        addButton.setBounds(60, 120, 50, 30);  
         addButton.addActionListener(new ActionListener() {  
             public void actionPerformed(ActionEvent e) {  
                 tf.setText(tf.getText() + "+"); // Append + to the existing text
@@ -24,8 +23,20 @@ class calculator {
             }  
         });   
 
+        // Subtraction Button
+        Button subButton = new Button("-");  
+        subButton.setBounds(120, 120, 50, 30);  
+        subButton.addActionListener(new ActionListener() {  
+            public void actionPerformed(ActionEvent e) {  
+                tf.setText(tf.getText() + "-"); // Append - to the existing text
+                tf.requestFocus();
+                tf.setCaretPosition(tf.getText().length());
+            }  
+        });
+
+        // Equal Button
         Button equalButton = new Button("=");
-        equalButton.setBounds(110, 100, 50, 30);
+        equalButton.setBounds(180, 120, 50, 30);
         equalButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {  
                 try {  
@@ -52,11 +63,13 @@ class calculator {
 
         // Add components to frame
         f.add(tf);  
+        f.add(label);  
         f.add(addButton);  
+        f.add(subButton);  
         f.add(equalButton);  
 
         // Frame settings
-        f.setSize(300, 200);  
+        f.setSize(350, 250);  
         f.setLayout(null);  
         f.setVisible(true);  
 
